@@ -6,3 +6,4 @@ print(f"bond price is {round(bond1.solve_price(), 2)} USD")
 print(
     f"bond yield is {round(bond2.solve_yield_to_maturity(0.01, 1000, 0.00001, 0.00000001), 4)}"
 )
+print(f"${round(bond1.price, 2)}")

@@ -9,14 +9,23 @@ fn pyo3_bond_pricing(_py: Python, m: &PyModule) -> PyResult<()> {
     Ok(())
 }
 
-/// This is the basic python class for a SimpleBond that represents a our bond
+/// This is the basic python class for a SimpleBond that represents the bond.
+/// Have added getter and setter for most variables for now.  No set for price/yield.
+/// Should probably add recalc step if price or yield are changed, to update the other.
+/// That would be applied inside a setter method.
 #[pyclass]
 struct SimpleBond {
+    #[pyo3(get, set)]
     face_value: f32,
+    #[pyo3(get, set)]
     coupon: f32,
+    #[pyo3(get, set)]
     frequency: f32,
+    #[pyo3(get, set)]
     maturity: f32,
+    #[pyo3(get)]
     yield_to_maturity: f32,
+    #[pyo3(get)]
     price: f32,
 }
 
